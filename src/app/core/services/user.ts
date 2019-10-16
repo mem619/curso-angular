@@ -3,9 +3,6 @@ import {  Injectable } from '@angular/core';
 
 import * as Data from '../../../assets/MOCK_DATA.json';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class UserService {
 
   constructor() {
@@ -22,5 +19,9 @@ export class UserService {
 
   count(): number {
     return this.list.length;
+  }
+
+  updateUser(): User {
+    this.list.find(usr => usr.id)
   }
 }

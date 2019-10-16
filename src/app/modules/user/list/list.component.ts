@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../../../core/services/user';
 import { User } from '../../../core/models/user';
-import { Address } from 'src/app/core/models/address';
-import { Phone } from 'src/app/core/models/phone';
+import { ModalComponent } from '../../shared/modal/modal.component';
+import { UserFormComponent } from '../user-form/user-form.component';
 
 
 @Component({
@@ -12,11 +12,10 @@ import { Phone } from 'src/app/core/models/phone';
 })
 export class ListComponent implements OnInit {
 
-  address: Address = new Address();
-  phone: Phone = new Phone();
-  user: User = new User();
+  @ViewChild('formUser', {static: false}) formUser: UserFormComponent;
+  userService: UserService = new UserService();
 
-  constructor(private userService: UserService) {
+  constructor() {
 
   }
 
@@ -31,22 +30,20 @@ export class ListComponent implements OnInit {
     }));
   }
 
-  saveUser(): void {
-    this.userService.save(this.user);
-    this.user = new User();
-  }
-
-  addPhone(): void {
-    this.user.phones.push(this.phone);
-    this.phone = new Phone();
-  }
-
-  addAddress(): void {
-    this.user.addresses.push(this.address);
-    this.address = new Address();
-  }
-
   getList(): User[] {
     return this.userService.list;
+  }
+
+  openForm(user?: User): void {
+    const userSend: User = (user) ? user : new User();
+    this.formUser.openModal(userSend);
+  }
+
+  saveUser(user: User): void {
+    console.log(user);
+  }
+
+  deleteUser(user: User): void {
+    console.log(user);
   }
 }
