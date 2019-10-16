@@ -1,11 +1,18 @@
 import { User } from '../models/user';
 import {  Injectable } from '@angular/core';
 
+import * as Data from '../../../assets/MOCK_DATA.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  constructor() {
+   this.list = (Data as any).default.map(user => new User(user));
+   console.log(this.list);
+  }
+
   list: User[] = [];
 
   save(user: User): void {
