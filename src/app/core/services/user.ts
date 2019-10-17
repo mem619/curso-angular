@@ -6,8 +6,7 @@ import * as Data from '../../../assets/MOCK_DATA.json';
 export class UserService {
 
   constructor() {
-   this.list = (Data as any).default.map(user => new User(user));
-   console.log(this.list);
+    this.list = (Data as any).default.map(user => new User(user));
   }
 
   list: User[] = [];
@@ -21,7 +20,16 @@ export class UserService {
     return this.list.length;
   }
 
-  updateUser(): User {
-    this.list.find(usr => usr.id)
+  updateUser(user: User): User {
+    const ind = this.list.findIndex(usr => user.id == usr.id);
+    this.list[ind] = user;
+
+    return this.list[ind];
+  }
+
+  deleteUser(user: User): void {
+    const ind = this.list.findIndex(usr => user.id == usr.id);
+
+    this.list.splice(ind,1);
   }
 }

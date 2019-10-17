@@ -12,22 +12,16 @@ import { UserFormComponent } from '../user-form/user-form.component';
 })
 export class ListComponent implements OnInit {
 
-  @ViewChild('formUser', {static: false}) formUser: UserFormComponent;
+  @ViewChild('formUser', {static: false})
+  formUser: UserFormComponent;
   userService: UserService = new UserService();
+  order: string = 'asc';
 
-  constructor() {
+  constructor() { }
+  ngOnInit( ) {}
 
-  }
-
-  ngOnInit( ) {
-
-    this.userService.save(new User({
-      id: 0,
-      name: 'Jose Guillermo',
-      lastName: 'Rios Tovar',
-      userName: 'mem619',
-      image: 'https://icon-library.net/images/avatar-icon-images/avatar-icon-images-4.jpg' ,
-    }));
+  setOrder(): void {
+    this.order = (this.order == 'asc') ? 'desc' :  'asc';
   }
 
   getList(): User[] {
@@ -40,10 +34,14 @@ export class ListComponent implements OnInit {
   }
 
   saveUser(user: User): void {
-    console.log(user);
+    if (!user.id) {
+      this.userService.save(user);
+    } else {
+      this.userService.updateUser(user);
+    }
   }
 
   deleteUser(user: User): void {
-    console.log(user);
+    this.userService.deleteUser(user);
   }
 }

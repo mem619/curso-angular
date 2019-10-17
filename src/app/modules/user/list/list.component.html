@@ -1,25 +1,28 @@
 <h1>Gestion de Usuarios</h1>
 <hr>
-<button class="btn btn-primary" (click)="openForm()">Nuevo</button>
-<div class="user mt-3">
-  <table class="container">
+<div class="user container mt-3">
+  <button class="btn btn-primary" (click)="openForm()">Nuevo</button>
+  <button class="btn btn-primary ml-3" (click)="setOrder()">Ordenar por Nombre</button>
+  <table class="table">
     <thead>
       <tr>
         <th>Imagen</th>
+        <th>Id</th>
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Opciones</th>
       </tr>
     </thead>
       <tbody>
-        <tr *ngFor="let user of getList(); let odd = odd;">
+        <tr *ngFor="let user of getList() | sortArr:order:'name'; let odd = odd;">
           <td><img [src]="user.image" class="avatar mr-3" alt=""></td>
+          <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.lastName }}</td>
           <td>
             <div class="row">
               <button class="btn btn-warning" (click)="openForm(user)">Modificar</button>
-              <button class="btn btn-danger ml-3" (click)="deleteUser()">Eliminar</button>
+              <button class="btn btn-danger ml-3" (click)="deleteUser(user)">Eliminar</button>
             </div>
           </td>
         </tr>
