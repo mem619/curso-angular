@@ -1,35 +1,50 @@
 import { User } from '../models/user';
 import {  Injectable } from '@angular/core';
-
 import * as Data from '../../../assets/MOCK_DATA.json';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
+  apiRoute: string = environment.api + 'users';
 
-  constructor() {
-    this.list = (Data as any).default.map(user => new User(user));
+  constructor(private http: HttpClient) {
+    //this.list = (Data as any).default.map(user => new User(user));
+
+    this.getUsers();
   }
 
   list: User[] = [];
 
+  getUsers(): void {
+    this.http.get(this.apiRoute).subscribe(
+      (resp: any) => {
+        this.list = resp;
+      }
+    );
+  }
+
   save(user: User): void {
-    user.id = this.count() + 1;
-    this.list.push(user);
+    this.http.post(this.apiRoute, user).subscribe((a) =>{
+      this.getUsers();
+    });
   }
 
   count(): number {
     return this.list.length;
   }
 
-  updateUser(user: User): User {
-    const ind = this.list.findIndex(usr => user.id == usr.id);
-    this.list[ind] = user;
-
-    return this.list[ind];
+  updateUser(user: User): any {
+    this.http.put(this.apiRoute, user).subscribe(() => {
+      this.getUsers();
+    });
   }
 
   deleteUser(user: User): void {
-    const ind = this.list.findIndex(usr => user.id == usr.id);
-
-    this.list.splice(ind,1);
+    this.http.delete(this.apiRoute + `/${user.id}`).subscribe(() => {
+      this.getUsers();
+    });
   }
 }

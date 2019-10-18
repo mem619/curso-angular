@@ -9,7 +9,8 @@ export class SortPipe implements PipeTransform {
    return val.sort((a , b) => {
       let factor = (order != 'asc') ? 1 : -1;
 
-      return (a[prop] > b[prop]) ? -1 * factor : ((b[prop] > a[prop]) ? 1 * factor : 0);
+      return (a[prop] > b[prop]) ? -1 * factor :
+      ((b[prop] > a[prop]) ? 1 * factor : 0);
     });
   }
 

@@ -14,10 +14,9 @@ export class ListComponent implements OnInit {
 
   @ViewChild('formUser', {static: false})
   formUser: UserFormComponent;
-  userService: UserService = new UserService();
   order: string = 'asc';
 
-  constructor() { }
+  constructor(private userService: UserService) { }
   ngOnInit( ) {}
 
   setOrder(): void {
@@ -39,6 +38,7 @@ export class ListComponent implements OnInit {
     } else {
       this.userService.updateUser(user);
     }
+
   }
 
   deleteUser(user: User): void {
