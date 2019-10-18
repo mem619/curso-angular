@@ -1,0 +1,50 @@
+.sidebar {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  list-style: none;
+  top:0;
+  left: 0;
+  background: #3d3d3d;
+  color: #fff;
+  transition: .5s;
+  user-select: none;
+
+  .item-menu {
+    padding: 5px;
+    text-align: center;
+
+      &:hover {
+        position: relative;
+        right: -5%;
+        background: gray;
+        font-weight: bold;
+      }
+
+      &:active {
+        position: relative;
+        right: 5%;
+      }
+    }
+
+    .options {
+      font-size: 1.3em;
+    }
+
+    &.hide {
+      left: -100%;
+    }
+
+    .avatar_container {
+      img {
+        margin: 0 auto;
+        display: block;
+        height: 72px;
+        width: 72px;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+}

@@ -1,0 +1,55 @@
+<app-modal title="Parametros de usuario." #modaluser (accep)="saveUser()">
+
+  <div class="row">
+    <div class="form col-4">
+      <label for="name">Nombre</label>
+      <input type="text" [(ngModel)]="user.name" class="form-control">
+      <label for="lastName">Apellido</label>
+      <input type="text" [(ngModel)]="user.lastName" class="form-control">
+      <label for="userName">Nombre de Usuario</label>
+      <input type="text" [(ngModel)]="user.userName" class="form-control">
+      <label for="image">url de imagen</label>
+      <input type="text" [(ngModel)]="user.image" class="form-control">
+    </div>
+    <ul class="list-phones col-4">
+      <button class="btn btn-primary ml-3" (click)="modalphone.show()" >+ Telefono</button>
+      <hr>
+      <li *ngFor="let phone of this.user.phones">
+        {{ phone.phoneNumber }}
+      </li>
+    </ul>
+    <ul class="list-address col-4">
+      <button class="btn btn-primary" (click)="modaladdress.show()" >+ Direccion</button>
+      <hr>
+      <li *ngFor="let address of this.user.addresses">
+        {{ address.street }}
+      </li>
+    </ul>
+  </div>
+  <app-modal #modaladdress (accep)="addPhone()">
+    <div class="add-phone form">
+      <label for="name">Etiqueta</label>
+      <input type="text" [(ngModel)]="phone.name" class="form-control">
+      <label for="phoneNumber">Telefono</label>
+      <input type="text" [(ngModel)]="phone.phoneNumber" class="form-control">
+      <label for="lada">Lada</label>
+      <input type="text" [(ngModel)]="phone.lada" class="form-control">
+    </div>
+  </app-modal>
+
+  <app-modal  #modalphone  (accep)="addAddress()">
+    <div class="add-address form">
+      <label for="street">Calle</label>
+      <input type="text" [(ngModel)]="address.street" class="form-control">
+      <label for="city">Ciudad</label>
+      <input type="text" [(ngModel)]="address.city" class="form-control">
+      <label for="country">Pais</label>
+      <input type="text" [(ngModel)]="address.country" class="form-control">
+      <label for="lat">Longitud</label>
+      <input type="text" [(ngModel)]="address.geo.lng" class="form-control">
+      <label for="lng">Latitud</label>
+      <input type="text" [(ngModel)]="address.geo.lat" class="form-control">
+    </div>
+  </app-modal>
+
+</app-modal>

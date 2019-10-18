@@ -1,0 +1,271 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "Connie",
+      "lastName": "Ibbetson",
+      "userName": "cibbetson0",
+      "image": "http://dummyimage.com/109x107.png/5fa2dd/ffffff",
+      "phones": [
+        {
+          "name": "Personal",
+          "phoneNumber": "414-474-7545",
+          "lada": "011"
+        },
+        {
+          "name": "Casa",
+          "phoneNumber": "313-989-9020",
+          "lada": "867"
+        },
+        {
+          "name": "Oficina",
+          "phoneNumber": "323-826-7417",
+          "lada": "811"
+        },
+        {
+          "name": "Personal",
+          "phoneNumber": "865-449-8678",
+          "lada": "52"
+        }
+      ],
+      "addresses": [
+        {
+          "street": "8908 Alpine Court",
+          "city": "Bajos de Haina",
+          "country": "Dominican Republic",
+          "geo": {
+            "lng": -70.031039,
+            "lat": 18.4091399
+          }
+        },
+        {
+          "street": "9992 Annamark Center",
+          "city": "Ivanovka",
+          "country": "Russia",
+          "geo": {
+            "lng": 44.0724798,
+            "lat": 55.7908866
+          }
+        },
+        {
+          "street": "67032 Texas Circle",
+          "city": "Chilecito",
+          "country": "Argentina",
+          "geo": {
+            "lng": -58.4798082,
+            "lat": -34.6312662
+          }
+        },
+        {
+          "street": "37882 Lindbergh Plaza",
+          "city": "Alingsås",
+          "country": "Sweden",
+          "geo": {
+            "lng": 12.5332741,
+            "lat": 57.9289181
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Juan",
+      "lastName": "Dehn",
+      "userName": "jdehn1",
+      "image": "http://dummyimage.com/145x194.jpg/cc0000/ffffff",
+      "phones": [
+        {
+          "name": "Personal",
+          "phoneNumber": "974-469-5265",
+          "lada": "011"
+        },
+        {
+          "name": "Casa",
+          "phoneNumber": "810-337-4481",
+          "lada": "867"
+        },
+        {
+          "name": "Oficina",
+          "phoneNumber": "884-216-0114",
+          "lada": "811"
+        },
+        {
+          "name": "Personal",
+          "phoneNumber": "137-879-5760",
+          "lada": "52"
+        },
+        {
+          "name": "Casa",
+          "phoneNumber": "683-188-1207",
+          "lada": "664"
+        }
+      ],
+      "addresses": [
+        {
+          "street": "55 Rigney Lane",
+          "city": "Cimadang",
+          "country": "Indonesia",
+          "geo": {
+            "lng": 106.2003019,
+            "lat": -6.343448
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Franzen",
+      "lastName": "Ridder",
+      "userName": "fridder2",
+      "image": "http://dummyimage.com/175x231.png/cc0000/ffffff",
+      "phones": [
+        {
+          "name": "Personal",
+          "phoneNumber": "727-948-1916",
+          "lada": "011"
+        },
+        {
+          "name": "Casa",
+          "phoneNumber": "561-562-4667",
+          "lada": "867"
+        },
+        {
+          "name": "Oficina",
+          "phoneNumber": "518-210-2147",
+          "lada": "811"
+        },
+        {
+          "name": "Personal",
+          "phoneNumber": "693-114-0268",
+          "lada": "52"
+        }
+      ],
+      "addresses": [
+        {
+          "street": "6718 New Castle Street",
+          "city": "Podporozh’ye",
+          "country": "Russia",
+          "geo": {
+            "lng": 34.1661641,
+            "lat": 60.9116468
+          }
+        },
+        {
+          "street": "3 Miller Lane",
+          "city": "Seulimeum",
+          "country": "Indonesia",
+          "geo": {
+            "lng": 95.624767,
+            "lat": 5.4724418
+          }
+        },
+        {
+          "street": "60731 Magdeline Crossing",
+          "city": "Auch",
+          "country": "France",
+          "geo": {
+            "lng": 0.5815411,
+            "lat": 43.6297603
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Rori",
+      "lastName": "Tather",
+      "userName": "rtather3",
+      "image": "http://dummyimage.com/131x177.bmp/ff4444/ffffff",
+      "phones": [
+        {
+          "name": "Personal",
+          "phoneNumber": "902-385-9812",
+          "lada": "011"
+        },
+        {
+          "name": "Casa",
+          "phoneNumber": "508-880-9220",
+          "lada": "867"
+        },
+        {
+          "name": "Oficina",
+          "phoneNumber": "997-674-6626",
+          "lada": "811"
+        }
+      ],
+      "addresses": [
+        {
+          "street": "36 Sutherland Lane",
+          "city": "Ventersdorp",
+          "country": "South Africa",
+          "geo": {
+            "lng": 27.6273013,
+            "lat": -26.1468042
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Jose",
+      "lastName": "Rios",
+      "userName": "Jose Rios",
+      "image": null,
+      "phones": [],
+      "addresses": []
+    },
+    {
+      "id": 6,
+      "name": "asd",
+      "lastName": "asd",
+      "userName": "asd",
+      "image": "asd",
+      "phones": [],
+      "addresses": []
+    },
+    {
+      "id": 7,
+      "name": "asd",
+      "lastName": "asd",
+      "userName": "asd",
+      "image": "asd",
+      "phones": [],
+      "addresses": []
+    },
+    {
+      "id": 8,
+      "name": "nuevo registro",
+      "lastName": "dad",
+      "userName": "dasd",
+      "image": "asd",
+      "phones": [],
+      "addresses": []
+    },
+    {
+      "id": 9,
+      "name": "asdasdas",
+      "lastName": "asdasdasdasd",
+      "userName": "asdasdasdasd",
+      "image": "asdasdasdasd",
+      "phones": [],
+      "addresses": []
+    }
+  ]
+}

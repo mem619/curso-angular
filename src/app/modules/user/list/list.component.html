@@ -1,75 +1,33 @@
-
-<div class="form-user p-3" >
-  <div class="form">
-    <label for="name">Nombre</label>
-    <input type="text" [(ngModel)]="user.name" class="form-control">
-    <label for="lastName">Apellido</label>
-    <input type="text" [(ngModel)]="user.lastName" class="form-control">
-    <label for="userName">Nombre de Usuario</label>
-    <input type="text" [(ngModel)]="user.userName" class="form-control">
-    <label for="image">url de imagen</label>
-    <input type="text" [(ngModel)]="user.image" class="form-control">
-    <ul class="list-phones">
-      <li *ngFor="let phone of this.user.phones">
-        {{phone.phoneNumber}}
-      </li>
-    </ul>
-    <ul class="list-address">
-      <li *ngFor="let addresss of this.user.addresses">
-        {{address.street}}
-      </li>
-    </ul>
-    <button
-      class="btn btn-primary"
-      (click)="saveUser()"
-    >
-      Guardar
-    </button>
+<h1>Gestion de Usuarios</h1>
+<hr>
+<div class="user container mt-3">
+  <button class="btn btn-primary" (click)="openForm()">Nuevo</button>
+  <button class="btn btn-primary ml-3" (click)="setOrder()">Ordenar por Nombre</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr *ngFor="let user of getList() | sortArr:order:'name'; let odd = odd;">
+          <td><img [src]="user.image" class="avatar mr-3" alt=""></td>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>
+            <div class="row">
+              <button class="btn btn-warning" (click)="openForm(user)">Modificar</button>
+              <button class="btn btn-danger ml-3" (click)="deleteUser(user)">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="add-phone form ">
-    <label for="name">Etiqueta</label>
-    <input type="text" [(ngModel)]="phone.name" class="form-control">
-    <label for="phoneNumber">Telefono</label>
-    <input type="text" [(ngModel)]="phone.phoneNumber" class="form-control">
-    <label for="lada">Lada</label>
-    <input type="text" [(ngModel)]="phone.lada" class="form-control">
-    <button
-      class="btn btn-primary"
-      (click)="addPhone()"
-    >
-      Guardar
-    </button>
-  </div>
-
-  <div class="add-address form">
-    <label for="street">Calle</label>
-    <input type="text" [(ngModel)]="address.street" class="form-control">
-    <label for="city">Ciudad</label>
-    <input type="text" [(ngModel)]="address.city" class="form-control">
-    <label for="country">Pais</label>
-    <input type="text" [(ngModel)]="address.country" class="form-control">
-    <label for="lat">Longitud</label>
-    <input type="text" [(ngModel)]="address.geo.lng" class="form-control">
-    <label for="lng">Latitud</label>
-    <input type="text" [(ngModel)]="address.geo.lat" class="form-control">
-    <button
-      class="btn btn-primary"
-      (click)="addAddress()"
-    >
-      Guardar
-    </button>
-  </div>
-</div>
-
-
-<ul class="list-unstyled p-3">
-  <li class="media mb-2" *ngFor="let user of getList()">
-    <img [src]="user.image" class="mr-3 avatar" alt="...">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">{{user.name}}</h5>
-    </div>
-  </li>
-</ul>
-
-
+  <app-user-form (save)="saveUser($event)" #formUser></app-user-form>
