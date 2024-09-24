@@ -1,0 +1,27 @@
+name: Deploy to Server on Dev Push
+
+# Se ejecuta cuando se hace push a la rama dev
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Este paso revisa el código del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Este paso envía un comando SSH al servidor remoto
+      - name: SSH into Server and Execute Command
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            ./log.sh
