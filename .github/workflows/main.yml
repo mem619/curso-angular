@@ -30,7 +30,7 @@ jobs:
           expect "password:"
           send "$SERVER_PASSWORD\r"
           expect "$ "
-          send "./log.sh"
+          send "/home/operador/log.sh"
           expect "$ "
           send "exit\r"
           EOF
